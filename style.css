@@ -1,0 +1,349 @@
+
+/* General settings */
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    min-height: 100vh;
+    min-height: 100dvh;
+    font-family: Arial, sans-serif;
+    color: #e8f1ed;
+
+    background:
+        radial-gradient(
+            circle at 50% 25%,
+            rgba(91, 153, 146, 0.25),
+            transparent 50%
+        ),
+        linear-gradient(
+            160deg,
+            #0c222c,
+            #1d4547,
+            #102c36
+        );
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Main app */
+.meditation-app {
+    width: 100%;
+    max-width: 480px;
+    padding: 35px 22px;
+    text-align: center;
+}
+
+/* Title */
+h1 {
+    font-size: 30px;
+    font-weight: 400;
+    letter-spacing: 1px;
+    margin-bottom: 10px;
+}
+
+.subtitle {
+    color: #a9c6c2;
+    font-size: 14px;
+    letter-spacing: 0.4px;
+}
+
+/* Timer */
+.timer {
+    font-size: 62px;
+    font-weight: 300;
+    font-variant-numeric: tabular-nums;
+    margin: 40px 0 25px;
+    letter-spacing: 3px;
+}
+
+/* Breathing animation area */
+.breathing-container {
+    width: 100%;
+    padding: 22px 10px;
+
+    background: rgba(255, 255, 255, 0.035);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 25px;
+
+    box-shadow:
+        0 12px 40px rgba(0, 0, 0, 0.12);
+
+    margin: 20px auto;
+}
+
+#breathing-svg {
+    display: block;
+    width: 100%;
+    height: auto;
+    overflow: visible;
+}
+
+#breathing-path {
+    stroke: #a8d5c2;
+    stroke-width: 4;
+}
+
+#breathing-circle {
+    fill: #ffd166;
+    filter: drop-shadow(
+        0 0 7px rgba(255, 209, 102, 0.65)
+    );
+}
+
+/* Breathing instructions */
+.breathing-text {
+    font-size: 22px;
+    font-weight: 300;
+    margin: 28px 0;
+    min-height: 28px;
+}
+
+/* Mode selection */
+.mode-selector {
+    display: flex;
+    justify-content: center;
+    gap: 12px;
+    margin-top: 25px;
+}
+
+button {
+    border: none;
+    cursor: pointer;
+    font-family: inherit;
+    font-size: 14px;
+    border-radius: 30px;
+    padding: 13px 22px;
+
+    transition:
+        background 0.25s ease,
+        transform 0.25s ease;
+}
+
+button:active {
+    transform: scale(0.97);
+}
+
+button:focus-visible {
+    outline: 3px solid #ffd166;
+    outline-offset: 3px;
+}
+
+button:disabled {
+    opacity: 0.55;
+    cursor: default;
+}
+
+.mode {
+    background: rgba(168, 213, 194, 0.13);
+    color: #e8f1ed;
+    border: 1px solid rgba(168, 213, 194, 0.2);
+}
+
+.mode.active {
+    background: #a8d5c2;
+    color: #102c36;
+}
+
+/* Mode description */
+.mode-description {
+    font-size: 13px;
+    color: #a9c6c2;
+    margin-top: 17px;
+}
+
+/* Control buttons */
+.controls {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-top: 35px;
+}
+
+#start-btn {
+    background: #ffd166;
+    color: #102c36;
+    font-weight: 600;
+}
+
+#pause-btn,
+#reset-btn {
+    background: #31575a;
+    color: white;
+}
+
+/* Mobile optimization */
+@media (max-width: 400px) {
+    .meditation-app {
+        padding: 25px 16px;
+    }
+
+    h1 {
+        font-size: 25px;
+    }
+
+    .timer {
+        font-size: 52px;
+        margin: 30px 0 20px;
+    }
+
+    .breathing-text {
+        font-size: 19px;
+    }
+
+    button {
+        padding: 12px 17px;
+        font-size: 13px;
+    }
+}
+
+
+/* Timer visibility control */
+
+.timer-area {
+    margin: 40px 0 25px;
+}
+
+.timer-area .timer {
+    margin: 0 0 12px;
+}
+
+.timer-toggle {
+    background: transparent;
+    color: #a9c6c2;
+    border: 1px solid rgba(168, 213, 194, 0.3);
+    padding: 8px 18px;
+    font-size: 12px;
+}
+
+.timer-toggle:hover {
+    background: rgba(168, 213, 194, 0.1);
+}
+
+.timer.hidden {
+    visibility: hidden;
+}
+
+
+
+/* Continuous wave animation */
+
+.breathing-container {
+    overflow: hidden;
+}
+
+#breathing-svg {
+    display: block;
+    width: 100%;
+}
+
+#wave-group {
+    will-change: transform;
+}
+
+#breathing-circle {
+    filter: drop-shadow(
+        0 0 7px rgba(255, 209, 102, 0.65)
+    );
+}
+
+
+
+/* ===================================
+   STEP 8 - iPhone Optimization
+   =================================== */
+
+/* Prevent unwanted horizontal scrolling */
+html,
+body {
+    width: 100%;
+    overflow-x: hidden;
+}
+
+/* Better mobile spacing */
+.meditation-app {
+    width: 100%;
+    margin: 0 auto;
+}
+
+/* Prevent iPhone text resizing */
+html {
+    -webkit-text-size-adjust: 100%;
+}
+
+/* Comfortable touch targets */
+button {
+    min-height: 44px;
+    touch-action: manipulation;
+}
+
+/* Small phone screens */
+@media (max-width: 430px) {
+
+    body {
+        align-items: flex-start;
+    }
+
+    .meditation-app {
+        padding: 28px 18px 40px;
+    }
+
+    h1 {
+        font-size: 25px;
+        line-height: 1.3;
+        margin-top: 12px;
+    }
+
+    .subtitle {
+        font-size: 13px;
+    }
+
+    .timer-area {
+        margin: 30px 0 20px;
+    }
+
+    .timer-area .timer {
+        font-size: 52px;
+    }
+
+    .breathing-container {
+        padding: 15px 8px;
+        border-radius: 22px;
+    }
+
+    .breathing-text {
+        font-size: 20px;
+        margin: 25px 0;
+    }
+
+    .mode-selector {
+        gap: 10px;
+    }
+
+    .controls {
+        margin-top: 28px;
+    }
+
+    .controls button {
+        padding: 12px 18px;
+    }
+}
+
+/* iPhone safe areas */
+@supports (padding: env(safe-area-inset-bottom)) {
+    .meditation-app {
+        padding-bottom:
+            calc(30px + env(safe-area-inset-bottom));
+    }
+}
+
+/* Reduce animation effects if requested */
+@media (prefers-reduced-motion: reduce) {
+    button {
+        transition: none;
+    }
+}

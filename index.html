@@ -1,0 +1,194 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>Calm Breath</title>
+
+    <link rel="stylesheet" href="style.css">
+
+    
+    <link rel="manifest" href="manifest.json">
+
+    <link rel="apple-touch-icon"
+        href="icons/apple-touch-icon.png">
+
+    <meta name="theme-color" content="#102C36">
+
+    <meta name="apple-mobile-web-app-capable"
+        content="yes">
+
+    <meta name="apple-mobile-web-app-title"
+        content="Calm Breath">
+
+    <meta name="apple-mobile-web-app-status-bar-style"
+        content="default">
+
+
+
+</head>
+
+<body>
+
+    <main class="meditation-app">
+
+        <!-- App Title -->
+        <h1>Calm Breath</h1>
+
+        <p class="subtitle">
+            Find your calm, one breath at a time.
+        </p>
+
+
+        <!-- Meditation Timer -->
+        <div class="timer-area">
+
+            <div class="timer" id="timer">
+                05:00
+            </div>
+
+            <button
+                id="toggle-timer-btn"
+                class="timer-toggle"
+                type="button"
+                aria-pressed="false">
+                Hide Timer
+            </button>
+
+        </div>
+
+
+        <!-- Continuous Breathing Wave -->
+        <div class="breathing-container">
+
+            <svg
+                id="breathing-svg"
+                viewBox="0 0 400 200"
+                role="img"
+                aria-label="Continuous breathing guide">
+
+                <defs>
+                    <clipPath id="wave-clip">
+                        <rect
+                            x="0"
+                            y="0"
+                            width="400"
+                            height="200">
+                        </rect>
+                    </clipPath>
+                </defs>
+
+                <!-- Moving wave group -->
+                <g id="wave-viewport"
+                   clip-path="url(#wave-clip)">
+
+                    <g id="wave-group">
+
+                        <!-- Continuous breathing path -->
+                        <path
+                            id="breathing-path"
+                            d="
+                                M 0 170
+                                C 45 170, 55 30, 100 30
+                                C 145 30, 155 170, 200 170
+                                C 245 170, 255 30, 300 30
+                                C 345 30, 355 170, 400 170
+                            "
+                            fill="none"
+                            stroke="#A8D5C2"
+                            stroke-width="4"
+                            stroke-linecap="round">
+                        </path>
+
+                    </g>
+
+                    <!-- Moving yellow circle -->
+                    <circle
+                        id="breathing-circle"
+                        cx="0"
+                        cy="170"
+                        r="11"
+                        fill="#FFD166">
+                    </circle>
+
+                </g>
+
+            </svg>
+
+        </div>
+
+
+        <!-- Breathing Instructions -->
+        <p
+            class="breathing-text"
+            id="breathing-text"
+            aria-live="off">
+            Ready to breathe?
+        </p>
+
+
+        <!-- Breathing Mode Selection -->
+        <div class="mode-selector">
+
+            <button
+                id="relax-mode"
+                class="mode active"
+                type="button">
+                Relax
+            </button>
+
+            <button
+                id="hold-mode"
+                class="mode"
+                type="button">
+                Gentle Hold
+            </button>
+
+        </div>
+
+
+        <!-- Selected Breathing Pattern -->
+        <p
+            class="mode-description"
+            id="mode-description">
+            Inhale 4s · Exhale 6s
+        </p>
+
+
+        <!-- Meditation Controls -->
+        <div class="controls">
+
+            <button
+                id="start-btn"
+                type="button">
+                Start
+            </button>
+
+            <button
+                id="pause-btn"
+                type="button">
+                Pause
+            </button>
+
+            <button
+                id="reset-btn"
+                type="button">
+                Reset
+            </button>
+
+        </div>
+
+    </main>
+
+
+    <!-- JavaScript -->
+    <script src="script.js"></script>
+
+</body>
+
+</html>
