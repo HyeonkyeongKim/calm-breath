@@ -120,7 +120,7 @@ function waveY(x, time) {
   const natural = CENTER_Y + NATURAL_AMPLITUDE *
     Math.sin(
       2 * Math.PI *
-      (time / NATURAL_CYCLE - (x - CIRCLE_X) / 200)
+      (time / NATURAL_CYCLE + (x - CIRCLE_X) / 200)
     );
 
   // A guided cycle spans 200 SVG units.
