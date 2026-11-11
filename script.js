@@ -124,8 +124,8 @@ function waveY(x, time) {
     );
 
   // A guided cycle spans 200 SVG units.
-  const guidedTime = time - PREPARATION_DURATION -
-    ((x - CIRCLE_X) / 200) * cycleDuration();
+  const guidedTime = time - PREPARATION_DURATION +
+   ((x - CIRCLE_X) / 200) * cycleDuration();
 
   const guided = guidedPosition(guidedTime);
   const blend = guidedBlend(time);
